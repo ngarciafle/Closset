@@ -5,26 +5,26 @@ import { Home, Tag, ShoppingBag, Heart, MessageSquare, User, UsersRound } from "
 
 export function SideNav() {
     return (
-        <aside className="bg-background-secondary flex flex-col h-lvh w-20 pt-16 top-0 z-10 gap-4 items-center">
+        <aside className="bg-background-secondary flex flex-col h-lvh w-20 pt-16 top-0 z-10 gap-8 items-center">
             <Link href="/" className=" flex flex-col items-center group">
                 <Home className="group-hover:stroke-3"/>
-                <p>Home</p>
+                <p className="text-xs">Home</p>
             </Link>
             <Link href="/" className=" flex flex-col items-center group">
                 <MessageSquare className="group-hover:fill-foreground"/>
-                <p>Messages</p>
+                <p className="text-xs">Messages</p>
             </Link>
             <Link href="/" className=" flex flex-col items-center group">
                 <Heart/>
-                <p>Wishlist</p>
+                <p className="text-xs">Wishlist</p>
             </Link>
             <Link href="/" className=" flex flex-col items-center group">
                 <UsersRound/>
-                <p>Exchange</p>
+                <p className="text-xs">Exchanges</p>
             </Link>
             <Link href="/" className=" flex flex-col items-center group">
                 <User/>
-                <p>My closet</p>
+                <p className="text-xs">My closet</p>
             </Link>
 
 
