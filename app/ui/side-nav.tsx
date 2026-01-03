@@ -1,33 +1,27 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Home, Tag, ShoppingBag, Heart, MessageSquare, User, UsersRound } from "lucide-react";
+'use client';
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/app/lib/utils";
+import { linkSideNav } from "../lib/constants";
 
 export function SideNav() {
+    const path = usePathname();
     return (
-        <aside className="bg-background-secondary flex flex-col h-lvh w-20 pt-16 top-0 z-10 gap-8 items-center">
-            <Link href="/" className=" flex flex-col items-center group">
-                <Home className="group-hover:stroke-3"/>
-                <p className="text-xs">Home</p>
-            </Link>
-            <Link href="/messages/" className=" flex flex-col items-center group">
-                <MessageSquare className="group-hover:fill-foreground"/>
-                <p className="text-xs">Messages</p>
-            </Link>
-            <Link href="/wishlist" className=" flex flex-col items-center group">
-                <Heart/>
-                <p className="text-xs">Wishlist</p>
-            </Link>
-            <Link href="/exchanges" className=" flex flex-col items-center group">
-                <UsersRound/>
-                <p className="text-xs">Exchanges</p>
-            </Link>
-            <Link href="/profile-public" className=" flex flex-col items-center group">
-                <User/>
-                <p className="text-xs">My closet</p>
-            </Link>
-
-
+        <aside className="bg-background-secondary flex flex-col h-lvh w-24 pt-16 top-0 z-10 gap-8 items-center">
+            {linkSideNav.map((link) => {
+                return (
+                    <Link href={link.href} key={link.name} className={
+                        cn(
+                            "flex flex-col items-center group rounded-sm",
+                            { "bg-gray-700": path === link.href }
+                        )
+                    }>
+                        <link.icon className="group-hover:stroke-3"/>
+                        <p className="text-xs font-barlow">{link.name}</p>
+                    </Link>
+                )
+            })}
         </aside>
     )
 }

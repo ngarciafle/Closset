@@ -9,10 +9,10 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 export function Header() {
     return (
-        <header className='bg-background-secondary grid grid-cols-4 pl-4 pr-4 pt-1 m-0 w-full h-12  shrink-0 z-20'>
+        <header className='bg-background-secondary grid grid-cols-4 pl-5 pr-4 pt-1 pb-2 m-0 w-full h-12  shrink-0 z-20'>
             <Menu>
                 <MenuButton className='w-fit'>
-                    <TextAlignJustify className='size-12 cursor-pointer p-4 scale-110'/>
+                    <TextAlignJustify className='size-14 cursor-pointer p-4 scale-110'/>
                 </MenuButton>
                 <MenuItems className='grid grid-cols-1 h-screen bg-background-secondary transition ease-in-out duration-300 z-30 ' anchor="bottom start" transition>
                     <MenuItem>
@@ -36,7 +36,7 @@ export function Header() {
                     width={100}
                     alt='App icon'
                 />
-                <p className='opacity-50 text-background col-start-1 row-start-1 z-20 group-hover:opacity-100 transition-opacity self-center justify-self-center'>closset</p>
+                <p className='opacity-50 text-background col-start-1 row-start-1 z-20 group-hover:opacity-100 transition-opacity self-center justify-self-center font-barlow'>closset</p>
             </Link>
 
 
