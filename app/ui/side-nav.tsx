@@ -13,7 +13,7 @@ export function SideNav() {
                 return (
                     <Link href={link.href} key={link.name} className={
                         cn(
-                            "flex flex-col items-center group rounded-sm",
+                            "flex flex-col items-center group rounded-sm w-15 py-2",
                             { "bg-gray-700": path === link.href }
                         )
                     }>

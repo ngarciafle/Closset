@@ -31,9 +31,11 @@ export default function RootLayout({
         className={`${raleway.variable} ${barlowCondensed.variable} antialiased h-screen w-full overflow-hidden flex flex-col`}
         >
           <Header/>
-          <div className="flex-1 flex">
+          <div className="flex-1 flex overflow-hidden">
             <SideNav/>
-            {children}
+            <main className="flex-1 overflow-y-auto dark:scrollbar dark:scrollbar-background">
+              {children}
+            </main>
           </div>
 
       </body>

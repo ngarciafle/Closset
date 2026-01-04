@@ -9,10 +9,10 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 
 export function Header() {
     return (
-        <header className='bg-background-secondary grid grid-cols-4 pl-5 pr-4 pt-1 pb-2 m-0 w-full h-12  shrink-0 z-20'>
+        <header className='bg-background-secondary flex flex-row pl-5 pr-4 pt-1 pb-2 m-0 w-full h-12  shrink-0 z-20 items-center '>
             <Menu>
                 <MenuButton className='w-fit'>
-                    <TextAlignJustify className='size-14 cursor-pointer p-4 scale-110'/>
+                    <TextAlignJustify className='size-14 cursor-pointer pl-4 pr-4 scale-110'/>
                 </MenuButton>
                 <MenuItems className='grid grid-cols-1 h-screen bg-background-secondary transition ease-in-out duration-300 z-30 ' anchor="bottom start" transition>
                     <MenuItem>
@@ -28,7 +28,7 @@ export function Header() {
             </Menu>
 
 
-            <Link href="/" className='group grid grid-cols-1 grid-rows-1'>
+            <Link href="/" className='group grid grid-cols-1 grid-rows-1 ml-8 shrink-0'>
                 <Image
                     className='cursor-pointer col-start-1 row-start-1 self-center justify-self-center group-hover:scale-110 transition-transform duration-300 group-hover:shadow-2xl'
                     src="/cuadro.png"
@@ -40,7 +40,7 @@ export function Header() {
             </Link>
 
 
-            <Form action={search} className='border-x-amber-50 w-full flex gap-0'>
+            <Form action={search} className='border-x-amber-50 w-full flex gap-0 ml-100'>
                 <label htmlFor="searchInput" className='hidden'></label>
                 <input type="text" id="searchInput" placeholder='Search' className='' minLength={3} required name='searchInput'/>
 
@@ -50,7 +50,7 @@ export function Header() {
             </Form>
 
             <Menu >
-                <MenuButton className='rounded-full bg-background size-10 cursor-pointer justify-self-end overflow-hidden relative'>
+                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
                     <User className='color-foreground m-auto size-8'/>
                 </MenuButton>
                     <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
