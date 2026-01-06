@@ -1,4 +1,4 @@
-import { Home, Tag, ShoppingBag, Heart, MessageSquare, User, UsersRound } from "lucide-react";
+import { Home, Heart, MessageSquare, User, UsersRound } from "lucide-react";
 
 export const linkSideNav = [
     { name: 'Home', href: '/', icon: Home },
