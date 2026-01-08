@@ -13,7 +13,7 @@ export default function DashboardLayout({
         <Header/>
         <div className="flex-1 flex overflow-hidden">
           <SideNav/>
-          <main className="flex-1 overflow-y-auto dark:scrollbar dark:scrollbar-background">
+          <main className="flex-1 overflow-y-auto dark:scrollbar dark:scrollbar-track-background dark:scrollbar-thumb-neutral-400 dark:scrollbar-hover:scrollbar-thumb-white/80">
             {children}
           </main>
         </div>
