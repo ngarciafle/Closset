@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Form from 'next/form';
-import { search } from '@/app/actions/handleSearch'
+import { search } from '@/app/data/handleSearch'
 import { User, Search, TextAlignJustify, LogOut, Settings } from 'lucide-react';
 import Link from 'next/link';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';

@@ -25,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
+      <body suppressHydrationWarning={true}
         className={`${raleway.variable} ${barlowCondensed.variable} antialiased h-screen w-full overflow-hidden flex flex-col`}
         >
          {children}
