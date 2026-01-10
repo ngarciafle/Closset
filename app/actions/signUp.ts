@@ -1,10 +1,8 @@
 'use server';
-import { z } from "zod";
-import db from "@/app/lib/db";
 import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { pool } from "@/app/lib/auth";
-import { signUpSchema, SignUpSchema } from "@/app/lib/zod";
+import { signUpSchema } from "@/app/lib/zod";
 
 export async function signUp(formData: FormData) {
   const data = {
@@ -17,10 +15,25 @@ export async function signUp(formData: FormData) {
 
   if (!parsedData.success) {
     const errors = parsedData.error.flatten().fieldErrors;
-    console.log('Validation errors:', errors);
+    console.log("error");
     return;
   }
   const { name, lastName, email, password } = parsedData.data;
 
-  console.log('Parsed data:', parsedData.data);
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  const client = await pool.connect();
+  try {
+    const insertQuery = `
+      INSERT INTO users (name, "lastName", email, password, "createdAt")
+      VALUES ($1, $2, $3, $4, NOW());
+    `;
+    const values = [name, lastName, email, hashedPassword];
+    await client.query(insertQuery, values);
+    redirect('/login');
+  } catch (error) {
+    console.error('Error inserting user into database:', error);
+  } finally {
+    client.release();
+  }
 }
