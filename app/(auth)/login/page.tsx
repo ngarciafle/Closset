@@ -1,5 +1,5 @@
 import Form from "next/form";
-import { logIn } from "@/app/actions/logIn";
+import { logIn } from "@/app/data/logIn";
 
 export default function LogIn() {
   return (
