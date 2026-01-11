@@ -28,17 +28,18 @@ export async function signUp(formData: FormData) {
   try {
     const insertQuery = `
       INSERT INTO users (name, "lastName", email, password, "createdAt")
-      VALUES ($1, $2, $3, $4, NOW());
+      VALUES ($1, $2, $3, $4, NOW())
+      RETURNING "id";
     `;
     const values = [name, lastName, email, hashedPassword];
-    await client.query(insertQuery, values);
+    const response = await client.query(insertQuery, values);
+    const userId = await response.rows[0].id;
+    await createSession(userId);
+    redirect('/');
   } catch (error) {
     console.error('Error inserting user into database:', error);
     return;
   } finally {
     client.release();
   }
-  const userId = await getUserId(email);
-  await createSession(userId);
-  redirect('/');
 }

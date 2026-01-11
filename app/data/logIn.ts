@@ -26,11 +26,12 @@ export async function logIn(formData: FormData) {
   const client = await pool.connect()
 
   try {
-    const insertQuery = `SELECT password FROM users WHERE email = $1`
+    const insertQuery = `SELECT password, id FROM users WHERE email = $1`
     const result = await client.query(insertQuery, [email]);
     const hashGuardado = result.rows[0].password;
     const compared = await bcrypt.compare(password, hashGuardado);
     if (compared) {
+      await createSession(result.rows[0].id);
       redirect("/");
     }
   } catch {
@@ -39,6 +40,4 @@ export async function logIn(formData: FormData) {
   } finally {
     client.release();
   }
-  const userId = await getUserId(email);
-  await createSession(userId);
 }
