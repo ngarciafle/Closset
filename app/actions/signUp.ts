@@ -3,6 +3,8 @@ import bcrypt from "bcryptjs";
 import { redirect } from "next/navigation";
 import { pool } from "@/app/lib/auth";
 import { signUpSchema } from "@/app/lib/zod";
+import { createSession } from "./createSession";
+import getUserId from "../data/getUserId";
 
 export async function signUp(formData: FormData) {
   const data = {
@@ -30,10 +32,13 @@ export async function signUp(formData: FormData) {
     `;
     const values = [name, lastName, email, hashedPassword];
     await client.query(insertQuery, values);
-    redirect('/login');
   } catch (error) {
     console.error('Error inserting user into database:', error);
+    return;
   } finally {
     client.release();
   }
+  const userId = await getUserId(email);
+  await createSession(userId);
+  redirect('/');
 }

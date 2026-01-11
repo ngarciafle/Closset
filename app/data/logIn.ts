@@ -3,6 +3,8 @@ import { logInSchema } from "../lib/zod";
 import bcrypt from "bcryptjs";
 import { pool } from "../lib/auth";
 import { redirect } from "next/navigation";
+import { createSession } from "../actions/createSession";
+import getUserId from "./getUserId";
 
 
 export async function logIn(formData: FormData) {
@@ -37,5 +39,6 @@ export async function logIn(formData: FormData) {
   } finally {
     client.release();
   }
-
+  const userId = await getUserId(email);
+  await createSession(userId);
 }
