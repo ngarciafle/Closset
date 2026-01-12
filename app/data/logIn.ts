@@ -4,10 +4,9 @@ import bcrypt from "bcryptjs";
 import { pool } from "../lib/auth";
 import { redirect } from "next/navigation";
 import { createSession } from "../actions/createSession";
-import getUserId from "./getUserId";
 
 
-export async function logIn(formData: FormData) {
+export async function logIn(prevState: any, formData: FormData) {
   const data = {
     email: formData.get('email')?.toString() || '',
     password: formData.get('password')?.toString() || '',
@@ -17,8 +16,13 @@ export async function logIn(formData: FormData) {
   const parsedData = logInSchema.safeParse(data);
 
   if (!parsedData.success) {
-    console.log("error");
-    return;
+    return {
+      success: false,
+      message: "Fill your data correctly",
+      inputs: data,
+      timestamp: Date.now(),
+      errors: parsedData.error.flatten().fieldErrors,
+    };
   }
 
   const { email, password } = parsedData.data;
@@ -34,9 +38,14 @@ export async function logIn(formData: FormData) {
       await createSession(result.rows[0].id);
       redirect("/");
     }
-  } catch {
-    console.log("error");
-    return;
+  } catch (error) {
+    return {
+      success: false,
+      message: error,
+      timestamp: Date.now(),
+      inputs: {email, password},
+      errors: {email: '', password: ''}
+    };
   } finally {
     client.release();
   }
