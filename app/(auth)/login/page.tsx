@@ -3,6 +3,7 @@ import Form from "next/form";
 import { logIn } from "@/app/data/logIn";
 import { useActionState, useState, useEffect } from "react";
 import { cn } from "@/app/lib/utils";
+import Link from "next/link";
 
 const initialState = {
   success: false,
@@ -77,6 +78,9 @@ export default function LogIn() {
             {JSON.stringify(state?.message)}
           </div>
         )}
+      <Link href="/sign-up" className="text-sm text-blue-500 hover:underline mt-4">
+        Dont have an account? Register
+      </Link>
       </Form>
     </div>
   );

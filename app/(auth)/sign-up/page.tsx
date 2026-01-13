@@ -3,6 +3,7 @@ import Form from "next/form";
 import { signUp } from "@/app/actions/signUp";
 import { useActionState, useState, useEffect } from "react";
 import { cn } from "@/app/lib/utils";
+import Link from "next/link";
 
 const initialState = {
   success: false,
@@ -115,6 +116,9 @@ export default function SignUp() {
             {JSON.stringify(state.message)}
           </div>
         )}
+      <Link href="/login" className="text-sm text-blue-500 hover:underline mt-4">
+        Already have an account? Log in
+      </Link>
       </Form>
     </div>
   );

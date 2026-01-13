@@ -12,7 +12,8 @@ export async function logIn(prevState: any, formData: FormData) {
     password: formData.get('password')?.toString() || '',
 
   }
-
+  let compared = false;
+  let result;
   const parsedData = logInSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -31,13 +32,9 @@ export async function logIn(prevState: any, formData: FormData) {
 
   try {
     const insertQuery = `SELECT password, id FROM users WHERE email = $1`
-    const result = await client.query(insertQuery, [email]);
+    result = await client.query(insertQuery, [email]);
     const hashGuardado = result.rows[0].password;
-    const compared = await bcrypt.compare(password, hashGuardado);
-    if (compared) {
-      await createSession(result.rows[0].id);
-      redirect("/");
-    }
+    compared = await bcrypt.compare(password, hashGuardado);
   } catch (error) {
     return {
       success: false,
@@ -48,5 +45,9 @@ export async function logIn(prevState: any, formData: FormData) {
     };
   } finally {
     client.release();
+  }
+  if (compared) {
+    await createSession(result.rows[0].id);
+    redirect("/");
   }
 }

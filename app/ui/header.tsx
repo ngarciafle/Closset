@@ -1,13 +1,56 @@
-'use client';
-
 import Image from 'next/image';
 import Form from 'next/form';
 import { search } from '@/app/data/handleSearch'
 import { User, Search, TextAlignJustify, LogOut, Settings } from 'lucide-react';
 import Link from 'next/link';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
+import { getSession } from '@/app/data/getSession';
+import logOut from '@/app/actions/logOut';
 
-export function Header() {
+export async function Header() {
+    const session = await getSession();
+    let menuOptions;
+    if (session) {
+        menuOptions = (
+            <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
+                <MenuItem>
+                    <Link href="/profile" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <User className='size-4 my-auto'/>
+                        <p>Profile</p>
+                    </Link>
+                </MenuItem>
+
+                <MenuItem>
+                    <Link href="/settings" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <Settings className='size-4 my-auto'/>
+                        <p>Settings</p>
+                    </Link>
+                </MenuItem>
+
+                <MenuItem>
+                    <Form action={logOut}>
+                        <button className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                            <LogOut className='size-4 my-auto'/>
+                            <p>Log out</p>
+                        </button>
+                    </Form>
+                </MenuItem>
+    
+            </MenuItems>
+        )
+    } else {
+        menuOptions = (
+            <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
+                <MenuItem>
+                    <Link href="/login" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <LogOut className='size-4 my-auto'/>
+                        <p>Log in</p>
+                    </Link>
+                </MenuItem>
+    
+            </MenuItems>
+        )
+    }
     return (
         <header className='bg-background-secondary flex flex-row pl-5 pr-4 pt-1 pb-2 m-0 w-full h-12  shrink-0 z-20 items-center '>
             <Menu>
@@ -48,35 +91,12 @@ export function Header() {
                     <Search className='color-foreground cursor-pointer'/>
                 </button>
             </Form>
-
-            <Menu >
-                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
-                    <User className='color-foreground m-auto size-8'/>
-                </MenuButton>
-                    <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
-                        <MenuItem>
-                            <Link href="/profile" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
-                                <User className='size-4 my-auto'/>
-                                <p>Profile</p>
-                            </Link>
-                        </MenuItem>
-
-                        <MenuItem>
-                            <Link href="/settings" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
-                                <Settings className='size-4 my-auto'/>
-                                <p>Settings</p>
-                            </Link>
-                        </MenuItem>
-
-                        <MenuItem>
-                            <Link href="/" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
-                                <LogOut className='size-4 my-auto'/>
-                                <p>Log out</p>
-                            </Link>
-                        </MenuItem>
-
-                    </MenuItems>
-            </Menu>
+               <Menu >
+                    <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
+                        <User className='color-foreground m-auto size-8'/>
+                    </MenuButton>
+                    {menuOptions}
+                </Menu>
         </header>
     )
 }
