@@ -8,8 +8,8 @@ import Link from "next/link";
 const initialState = {
   success: false,
   message: "",
-  errors: {},
-  inputs: { name: "", lastName: "", email: "", password: "" },
+  errors: { name: "", lastName: "", userName: "", email: "", password: "" },
+  inputs: { name: "", lastName: "", userName: "", email: ""},
   timestamp: 0,
 };
 
@@ -36,7 +36,7 @@ export default function SignUp() {
               )}
               htmlFor="name"
             >
-              {state.errors?.name ? "Name format is invalid" : "Name"}
+              {state.errors?.name ? state.errors.name : "Name"}
             </label>
             <input
               defaultValue={state.inputs?.name}
@@ -55,7 +55,7 @@ export default function SignUp() {
               htmlFor="lastName"
             >
               {state.errors?.lastName
-                ? "Last Name format is invalid"
+                ? state.errors.lastName
                 : "Last Name"}
             </label>
             <input
@@ -71,11 +71,29 @@ export default function SignUp() {
           <label
             className={cn(
               "font-barlow text-xs",
+              state.errors?.userName ? "text-red-500" : ""
+            )}
+            htmlFor="userName"
+          >
+            {state.errors?.userName ? state.errors.userName : "User Name"}
+          </label>
+          <input
+            defaultValue={state.inputs?.userName}
+            type="text"
+            className="bg-foreground text-background"
+            id="userName"
+            name="userName"
+          />
+        </div>
+        <div className="flex flex-col ">
+          <label
+            className={cn(
+              "font-barlow text-xs",
               state.errors?.email ? "text-red-500" : ""
             )}
             htmlFor="email"
           >
-            {state.errors?.email ? "Email format is invalid" : "Email"}
+            {state.errors?.email ? state.errors.email : "Email"}
           </label>
           <input
             defaultValue={state.inputs?.email}
@@ -93,10 +111,9 @@ export default function SignUp() {
             )}
             htmlFor="password"
           >
-            {state.errors?.password ? "Password format is invalid" : "Password"}
+            {state.errors?.password ? state.errors.password : "Password"}
           </label>
           <input
-            defaultValue={state.inputs?.password}
             type="password"
             className="bg-foreground text-background"
             id="password"
@@ -113,7 +130,7 @@ export default function SignUp() {
         </button>
         {showMessage && (
           <div id="errorCart" className={`text-red-500 text-sm}`}>
-            {JSON.stringify(state.message)}
+            {state.message}
           </div>
         )}
       <Link href="/login" className="text-sm text-blue-500 hover:underline mt-4">

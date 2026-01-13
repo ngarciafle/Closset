@@ -23,7 +23,7 @@ export const getSession = cache(async () => {
     if (result.rows.length === 0) {
       return null;
     } 
-    return result.rows[0].users;
+    return result.rows[0];
   } catch (error) {
     console.log("error fetching session:", error);
     return null;
