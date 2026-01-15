@@ -52,7 +52,7 @@ export async function Header() {
         )
     }
     return (
-        <header className='bg-background-secondary flex flex-row pl-5 pr-4 pt-1 pb-2 m-0 w-full h-12  shrink-0 z-20 items-center '>
+        <header className='bg-background-secondary flex flex-row pl-5 pr-4 pt-3 pb-3 m-0 w-full h-14 shrink-0 z-20 items-center '>
             <Menu>
                 <MenuButton className='w-fit'>
                     <TextAlignJustify className='size-14 cursor-pointer pl-4 pr-4 scale-110'/>
