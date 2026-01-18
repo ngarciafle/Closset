@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Form from 'next/form';
 import { search } from '@/app/data/handleSearch'
-import { User, Search, TextAlignJustify, LogOut, Settings } from 'lucide-react';
+import { User, Search, TextAlignJustify, LogOut, Settings, Plus, Shirt, ArrowBigUpDash} from 'lucide-react';
 import Link from 'next/link';
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { getSession } from '@/app/data/getSession';
@@ -91,12 +91,36 @@ export async function Header() {
                     <Search className='color-foreground cursor-pointer'/>
                 </button>
             </Form>
-               <Menu >
-                    <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
-                        <User className='color-foreground m-auto size-8'/>
-                    </MenuButton>
-                    {menuOptions}
-                </Menu>
+            <Menu>
+
+                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer ml-6 '>
+                    <Plus className='color-foreground m-auto size-8'/>
+                </MenuButton>
+
+                <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
+                <MenuItem>
+                    <Link href="/addGarment" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <Shirt className='size-4 my-auto'/>
+                        <p>Add garment</p>
+                    </Link>
+                </MenuItem>
+    
+                <MenuItem>
+                    <Link href="/addOutfit" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <ArrowBigUpDash className='size-4 my-auto'/>
+                        <p>Add outfit</p>
+                    </Link>
+                </MenuItem>
+            </MenuItems>
+
+            </Menu>
+
+            <Menu >
+                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
+                    <User className='color-foreground m-auto size-8'/>
+                </MenuButton>
+                {menuOptions}
+            </Menu>
         </header>
     )
 }
