@@ -14,7 +14,7 @@ export const getSession = cache(async () => {
   const client = await pool.connect();
   try {
     const query = `
-      SELECT users.name, users."lastName", users.image, users.id, users."username"
+      SELECT users.name, users."lastName", users.image, users.id, users."username", users.bio
       FROM sessions
       JOIN users ON sessions."userId" = users.id
       WHERE sessions.token = $1 AND sessions."expiresAt" > NOW()
