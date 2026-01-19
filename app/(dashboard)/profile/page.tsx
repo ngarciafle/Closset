@@ -6,6 +6,7 @@ import { getFollow } from "@/app/data/getFollower";
 import { getFollowing } from "@/app/data/getFollowing";
 import { Suspense } from "react";
 import { BioEditor } from "@/app/ui/profileBio";
+import { ProfileImages } from "@/app/ui/profileImages";
 
 export default async function ProfilePage() {
     const session = await getSession();
@@ -26,7 +27,7 @@ export default async function ProfilePage() {
                 />
                 <div className="flex flex-col">
                     <div id="data" className="flex flex-row gap-6 ">
-                        <p>{session?.username}</p>
+                        <p className="pr-6">{session?.username}</p>
                         <p className="text-nowrap">Followers  <Suspense><span>{followers}</span></Suspense></p>
                         <p className="text-nowrap">Following  <Suspense><span>{following}</span></Suspense></p>
                         <Link href="/settings">
@@ -39,9 +40,7 @@ export default async function ProfilePage() {
             <div id="content">
 
             </div>
-            <div>
-
-            </div>
+            <ProfileImages images={session?.image || '/default-profile.png'} />
         </main>
     )
 }

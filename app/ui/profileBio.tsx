@@ -24,9 +24,9 @@ export function BioEditor({ initialBio }: { initialBio: string }) {
 
     if (isEditing) {
         return (
-            <div className="flex flex-col gap-2 mt-2">
+            <div className="flex flex-col gap-2 mt-2 pt-3">
                 <textarea
-                    className={cn("w-full p-2 border rounded text-black", isPending && "opacity-50")}
+                    className={cn("w-full p-2 border rounded text-foreground", isPending && "opacity-50")}
                     value={bio}
                     onChange={(e) => setBio(e.target.value)}
                     disabled={isPending}
@@ -43,7 +43,7 @@ export function BioEditor({ initialBio }: { initialBio: string }) {
                     <button 
                         onClick={handleCancel} 
                         disabled={isPending}
-                        className="text-gray-500 text-sm"
+                        className="text-foreground text-sm"
                     >
                         Cancel
                     </button>
@@ -53,8 +53,8 @@ export function BioEditor({ initialBio }: { initialBio: string }) {
     }
 
     return (
-        <div className="mt-2 group">
-            <p className="text-gray-700">{bio || "Empty biography..."}</p>
+        <div className="mt-2 group pt-4">
+            <p className="text-foreground">{bio || "Empty biography..."}</p>
             <button 
                 onClick={() => setIsEditing(true)} 
                 className="text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
