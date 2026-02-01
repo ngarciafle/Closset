@@ -5,5 +5,5 @@ export const linkSideNav = [
     { name: 'Messages', href: '/messages', icon: MessageSquare },
     { name: 'Wishlist', href: '/wishlist', icon: Heart },
     { name: 'Exchanges', href: '/exchanges', icon: UsersRound },
-    { name: 'My closet', href: '/profile-public', icon: User }
+    { name: 'My closet', href: '/my-closset', icon: User }
 ]

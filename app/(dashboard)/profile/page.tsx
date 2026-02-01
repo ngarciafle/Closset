@@ -16,8 +16,8 @@ export default async function ProfilePage() {
 
 
     return (
-        <main className="pt-12 pl-24">
-            <div id="hero" className="flex flex-row justify-center mr-40">
+        <main className="pt-12 pl-32 pr-32">
+            <div id="hero" className="flex flex-row justify-center">
                 <Image
                     src={session?.image || '/default-profile.png'}
                     width={250}
