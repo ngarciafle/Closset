@@ -14,7 +14,7 @@ export async function Header() {
         menuOptions = (
             <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
                 <MenuItem>
-                    <Link href="/profile" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                    <Link href={`/${session.username}`} className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
                         <User className='size-4 my-auto'/>
                         <p>Profile</p>
                     </Link>

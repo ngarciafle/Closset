@@ -1,11 +1,52 @@
 import Image from "next/image"
-import { getSession } from "@/app/data/getSession";
+import { Settings } from "lucide-react"
+import { getSession } from "@/app/data/getSession"
+import Link from "next/link";
 import { getFollow } from "@/app/data/getFollower";
+import { getFollowing } from "@/app/data/getFollowing";
+import { Suspense } from "react";
+import { BioEditor } from "@/app/ui/profileBio";
+import { ProfileImages } from "@/app/ui/profileImages";
 import { getUserPublicData } from "@/app/data/getUserData";
 
-
-export default async function ProfilePage({ params }: { params: { userName: string } }) {
+export default async function ProfilePage({ params }: { params: { username: string } }) {
     const session = await getSession();
-    const followers = await getFollow(session?.userId);
-    const userData = await getUserPublicData(params.userName);
+    const { username } = await params;
+    const info = await getUserPublicData(username);
+    const followers = await getFollow(info?.id);
+    const following = await getFollowing(info?.id);
+    let isUser = false;
+    if (session?.username === username) {
+        isUser = true;
+    }
+
+
+    return (
+        <main className="pt-12 pl-32 pr-32">
+            <div id="hero" className="flex flex-row justify-center">
+                <Image
+                    src={info?.image || '/default-profile.png'}
+                    width={250}
+                    height={250}
+                    alt="Profile image"
+                    className="mr-40"
+                />
+                <div className="flex flex-col">
+                    <div id="data" className="flex flex-row gap-6 ">
+                        <p className="pr-6">{username}</p>
+                        <p className="text-nowrap">Followers  <Suspense><span>{followers}</span></Suspense></p>
+                        <p className="text-nowrap">Following  <Suspense><span>{following}</span></Suspense></p>
+                        {isUser && <Link href="/settings">
+                            <Settings/>
+                        </Link>}
+                    </div>
+                    <BioEditor initialBio={info?.bio || ""} editable={isUser} />
+                </div>
+            </div>
+            <div id="content">
+
+            </div>
+            <ProfileImages images={info?.image || '/default-profile.png'} />
+        </main>
+    )
 }

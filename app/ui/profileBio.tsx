@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { updateBio } from "@/app/actions/updateBio";
 import { cn } from "@/app/lib/utils";
 
-export function BioEditor({ initialBio }: { initialBio: string }) {
+export function BioEditor({ initialBio, editable }: { initialBio: string, editable: boolean }) {
     const [isEditing, setIsEditing] = useState(false);
     const [bio, setBio] = useState(initialBio || "");
     const [isPending, startTransition] = useTransition();
@@ -22,7 +22,7 @@ export function BioEditor({ initialBio }: { initialBio: string }) {
         });
     };
 
-    if (isEditing) {
+    if (isEditing && editable) {
         return (
             <div className="flex flex-col gap-2 mt-2 pt-3">
                 <textarea
@@ -55,12 +55,14 @@ export function BioEditor({ initialBio }: { initialBio: string }) {
     return (
         <div className="mt-2 group pt-4">
             <p className="text-foreground">{bio || "Empty biography..."}</p>
-            <button 
-                onClick={() => setIsEditing(true)} 
-                className="text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
-            >
-                Edit Bio
-            </button>
+            {editable && (
+                <button 
+                    onClick={() => setIsEditing(true)} 
+                    className="text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                    Edit Bio
+                </button>
+            )}
         </div>
     );
 }
