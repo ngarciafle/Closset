@@ -1,6 +1,6 @@
+"use client";
 import Form from "next/form"
 import { uploadGarment } from "@/app/actions/uploadGarment"
-import { CldUploadWidget } from "next-cloudinary";
 
 
 export default function addGarmentPage() {
@@ -12,13 +12,9 @@ export default function addGarmentPage() {
                     <input className="ring-1 ring-foreground" type="text" id="garmentName" name="garmentName" />
                 </div>
 
-                <CldUploadWidget 
-                    uploadPreset="nombre_de_tu_preset" // Debes crearlo en la consola de Cloudinary
-                    onSuccess={(results) => {
-                        // Aquí recibes la URL para guardarla en tu Postgres
-                        console.log("Imagen subida:", results.info);
-                    }}
-                ></CldUploadWidget>
+                <label htmlFor="image">Image</label>
+                <input className="" type="file" id="image" name="image" multiple/>
+
                 <div className="flex flex-row gap-2">
                     <label htmlFor="materials">Materials</label>
                     <input className="ring-1 ring-foreground" type="text" id="materials" name="materials" />
@@ -30,6 +26,14 @@ export default function addGarmentPage() {
                 <div className="flex flex-row gap-2">
                     <label htmlFor="size">Size</label>
                     <input className="ring-1 ring-foreground" type="text" id="size" name="size" />
+                </div>
+                <div className="flex flex-row gap-2">
+                    <label htmlFor="color">Color</label>
+                    <input className="ring-1 ring-foreground" type="text" id="color" name="color" />
+                </div>
+                <div className="flex flex-row gap-2">
+                    <label htmlFor="type">Type</label>
+                    <input className="ring-1 ring-foreground" type="text" id="type" name="type" />
                 </div>
 
                 <button className="bg-accent text-background-primary px-4 py-2 rounded-lg hover:brightness-90 bg-background shadow transition">
