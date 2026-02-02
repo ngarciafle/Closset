@@ -12,3 +12,12 @@ export const logInSchema = z.object({
   email: z.string().email('Invalid email address').regex(/^[^\s@]+@[^\s@]+\.[^\s@]+$/, { message: "Invalid email format" }),
   password: z.string().min(6, "Password must be at least 6 characters long"),
 })
+
+export const garmentSchema = z.object({
+  name: z.string().min(1, 'Garment name is required'),
+  materials: z.string().min(1, 'Materials are required'),
+  brand: z.string().min(1, 'Brand is required'),
+  size: z.string().optional(),
+  color: z.string().min(1, 'Color is required'),
+  type: z.string().min(1, 'Type is required'),
+});
