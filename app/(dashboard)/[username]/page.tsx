@@ -6,8 +6,10 @@ import { getFollow } from "@/app/data/getFollower";
 import { getFollowing } from "@/app/data/getFollowing";
 import { Suspense } from "react";
 import { BioEditor } from "@/app/ui/profileBio";
-import { ProfileImages } from "@/app/ui/profileImages";
+import ProfileImages from "@/app/ui/profileImages";
 import { getUserPublicData } from "@/app/data/getUserData";
+import { getGarments } from "@/app/data/getGarments";
+
 
 export default async function ProfilePage({ params }: { params: { username: string } }) {
     const session = await getSession();
@@ -19,10 +21,10 @@ export default async function ProfilePage({ params }: { params: { username: stri
     if (session?.username === username) {
         isUser = true;
     }
-
+    const garments = await getGarments(username);
 
     return (
-        <main className="pt-12 pl-32 pr-32">
+        <div className="pt-12 pl-32 pr-32 ">
             <div id="hero" className="flex flex-row justify-center">
                 <Image
                     src={info?.image || '/default-profile.png'}
@@ -43,10 +45,7 @@ export default async function ProfilePage({ params }: { params: { username: stri
                     <BioEditor initialBio={info?.bio || ""} editable={isUser} />
                 </div>
             </div>
-            <div id="content">
-
-            </div>
-            <ProfileImages images={info?.image || '/default-profile.png'} />
-        </main>
+            <ProfileImages userName={username} garments={garments} />
+        </div>
     )
 }
