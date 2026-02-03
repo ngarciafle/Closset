@@ -5,17 +5,20 @@ import { garmentSchema } from "../lib/zod";
 import { v2 as cloudinary } from 'cloudinary';
 import { getSession } from "../data/getSession";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 
 export async function uploadGarment(formData: FormData) {
+  //Get session
   const session = await getSession();
   if (!session) {
     throw new Error("User not authenticated");
   }
+  
+  // Configure Cloudinary
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET,
+  });
 
   // Upload image to Cloudinary and get the URL
   const files = formData.getAll('image') as File[];
@@ -46,6 +49,7 @@ export async function uploadGarment(formData: FormData) {
   }
   const parsedData = garmentSchema.safeParse(data);
   if (!parsedData.success) { //pass exceptions
+    console.error("Garment data validation failed:", parsedData.error);
     throw new Error("Invalid garment data");
   }
   const client = await pool.connect();
@@ -61,5 +65,5 @@ export async function uploadGarment(formData: FormData) {
   } finally {
     client.release();
   }
-  redirect('/')
+  redirect('/${session.username}');
 }

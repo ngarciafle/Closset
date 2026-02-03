@@ -14,10 +14,10 @@ export const logInSchema = z.object({
 })
 
 export const garmentSchema = z.object({
-  name: z.string().min(1, 'Garment name is required'),
-  materials: z.string().min(1, 'Materials are required'),
-  brand: z.string().min(1, 'Brand is required'),
-  size: z.string().optional(),
-  color: z.string().min(1, 'Color is required'),
-  type: z.string().min(1, 'Type is required'),
+  name: z.string().min(1, 'Garment name is required').regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/, { message: "Name can only contain letters" }),
+  materials: z.string().min(1, 'Materials are required').regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/, { message: "Name can only contain letters" }),
+  brand: z.string().min(1, 'Brand is required').regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/, { message: "Name can only contain letters" }),
+  size: z.string().regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ0-9\s]+$/, { message: "Name can only contain letters" }).optional(),
+  color: z.string().min(1, 'Color is required').regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/, { message: "Name can only contain letters" }),
+  type: z.string().min(1, 'Type is required').regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s]+$/, { message: "Name can only contain letters" }),
 });

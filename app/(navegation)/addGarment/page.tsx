@@ -8,8 +8,8 @@ export default function addGarmentPage() {
         <div className="bg-background-secondary p-4 rounded-xl">
             <Form action={uploadGarment} className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2">
-                    <label htmlFor="garmentName">Name</label>
-                    <input className="ring-1 ring-foreground" type="text" id="garmentName" name="garmentName" />
+                    <label htmlFor="name">Name</label>
+                    <input className="ring-1 ring-foreground" type="text" id="name" name="name" />
                 </div>
 
                 <label htmlFor="image">Image</label>
