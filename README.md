@@ -51,6 +51,7 @@ npm run dev
 ```
 
 ## 📂 Project Structure (on construction🚧)
+```text
 Closset/
 ├── app/
 │   ├── api/               # Server-side API routes
@@ -62,7 +63,7 @@ Closset/
 │   └── garments/          # Garment-specific components
 ├── lib/                   # Utilities and configurations
 └── public/                # Static assets
-
+```
 
 ## Roadmap
 1. Build a basic UI 🚧
