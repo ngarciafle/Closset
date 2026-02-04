@@ -19,15 +19,14 @@ export default function ProfileImages(props: { userName: string, garments: any[]
     contentImages = ( // show garment images
       <div className="grid grid-cols-4">
       {props.garments.length == 0 ? <p>No garments available</p> : props.garments.map((garment: any) => ( 
-        <Link href={`/garment/${garment.id}`} key={garment.id} className="relative group"> 
+        <Link href={`/garment/${garment.id}`} key={garment.id} className="relative group w-1/4 overflow-hidden block" style={{ aspectRatio: '3/4' }}> 
           <Image  
             src={garment.images?.[0]} // only the first image --> build selector of main image?? 
             alt={garment.name || "Garment Image"}
-            className="w-40 h-auto object-cover "
-            width={200} //need to adjust width and height
-            height={200}
+            className="object-cover flex-1"
+            fill
           />
-          <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-50 transition-opacity duration-300"></div>
+          {/* <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"></div> */}
         </Link>
       ))}
     </div>
@@ -35,7 +34,7 @@ export default function ProfileImages(props: { userName: string, garments: any[]
   }
 
   return (
-    <div>
+    <div className="pt-4">
       <div className="w-full mt-3 flex justify-around ">
         <button className={
           cn("p-2 box-border border-b-2", state ? "hover:cursor-pointer border-background" : "border-foreground-500")
