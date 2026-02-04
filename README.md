@@ -11,10 +11,9 @@
 
 Built with performance and user experience in mind using the latest web standards:
 
-* **[Next.js 15](https://nextjs.org/)**: React Framework (App Router).
+* **[Next.js 16](https://nextjs.org/)**: React Framework (App Router).
 * **[TypeScript](https://www.typescriptlang.org/)**: For type-safe code.
 * **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework for styling.
-* **[Prisma](https://www.prisma.io/)**: Next-generation ORM for Node.js and TypeScript.
 * **[Cloudinary](https://cloudinary.com/)**: Cloud-based image management and optimization.
 * **PostgreSQL**: Relational database system.
 
@@ -28,3 +27,43 @@ Follow these steps to set up the project locally on your machine.
 ```bash
 git clone [https://github.com/ngarciafle/Closset.git](https://github.com/ngarciafle/Closset.git)
 cd Closset
+```
+### 2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+### 3. Create environment variables on .env
+# Database connection (e.g., Supabase, Neon, or local Postgres)
+DATABASE_URL="postgresql://user:password@localhost:5432/closset"
+
+# Cloudinary Configuration (For image uploads)
+NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+CLOUDINARY_API_KEY="your_api_key"
+CLOUDINARY_API_SECRET="your_api_secret"
+
+### 4. RRUN IT!
+npm run dev
+
+## 📂 Project Structure (on construction🚧)
+Closset/
+├── app/
+│   ├── api/               # Server-side API routes
+│   │   └── upload/        # Cloudinary upload endpoint
+│   ├── layout.tsx         # Main layout (Navbar, Footer)
+│   └── globals.css        # Tailwind directives
+├── components/            # Reusable UI components
+│   ├── ui/                # Buttons, Inputs, Cards
+│   └── garments/          # Garment-specific components
+├── lib/                   # Utilities and configurations
+└── public/                # Static assets
+
+
+## Roadmap
+1. Build a basic UI 🚧
+2. Have a strong backend 🚧
+3. Build functionality with AI using the clothing 🛑
+4. ...
