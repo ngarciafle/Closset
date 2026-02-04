@@ -4,7 +4,7 @@
 
 ![Status](https://img.shields.io/badge/status-active-success.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Next.js](https://img.shields.io/badge/Next.js-15-black)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)
 
 ## 🚀 Tech Stack
@@ -23,12 +23,12 @@ Built with performance and user experience in mind using the latest web standard
 
 Follow these steps to set up the project locally on your machine.
 
-### 1. Clone the repository
+## 1. Clone the repository
 ```bash
 git clone [https://github.com/ngarciafle/Closset.git](https://github.com/ngarciafle/Closset.git)
 cd Closset
 ```
-### 2. Install dependencies
+## 2. Install dependencies
 ```bash
 npm install
 # or
@@ -36,12 +36,12 @@ yarn install
 # or
 pnpm install
 ```
-### 3. Create environment variables on .env
-# Database connection (e.g., Supabase, Neon, or local Postgres)
+## 3. Create environment variables on .env
+### Database connection (local Postgres)
 DATABASE_URL="postgresql://user:password@localhost:5432/closset"
 
 # Cloudinary Configuration (For image uploads)
-NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="your_cloud_name"
+CLOUDINARY_CLOUD_NAME="your_cloud_name"
 CLOUDINARY_API_KEY="your_api_key"
 CLOUDINARY_API_SECRET="your_api_secret"
 
