@@ -46,7 +46,9 @@ CLOUDINARY_API_KEY="your_api_key"
 CLOUDINARY_API_SECRET="your_api_secret"
 
 ### 4. RRUN IT!
+```bash
 npm run dev
+```
 
 ## 📂 Project Structure (on construction🚧)
 Closset/
