@@ -65,7 +65,7 @@ Closset/
 └── public/                # Static assets
 ```
 
-## Roadmap
+## 🗺Roadmap
 1. Build a basic UI 🚧
 2. Have a strong backend 🚧
 3. Build functionality with AI using the clothing 🛑
