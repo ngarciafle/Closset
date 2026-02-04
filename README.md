@@ -56,12 +56,16 @@ Closset/
 ├── app/
 │   ├── api/               # Server-side API routes
 │   │   └── upload/        # Cloudinary upload endpoint
-│   ├── layout.tsx         # Main layout (Navbar, Footer)
-│   └── globals.css        # Tailwind directives
-├── components/            # Reusable UI components
-│   ├── ui/                # Buttons, Inputs, Cards
-│   └── garments/          # Garment-specific components
-├── lib/                   # Utilities and configurations
+│   ├── actions/           # Server actions & DB interactions (POST)
+│   ├── data/              # Server actions & DB interactions (GET)
+│   ├── lib/               # Utilities and configurations
+│   ├── ui/                # UI Components
+│   ├── (auth)             # Auth 
+│   ├── (dashboard)        # Basic UI
+│   ├── (navegation)       # Different pages
+│   └── layout.tsx         # Main layout (Navbar, Footer)
+├── globals.css            # Tailwind directives
+├── .env                   # Environment variables
 └── public/                # Static assets
 ```
 
@@ -69,4 +73,5 @@ Closset/
 1. Build a basic UI 🚧
 2. Have a strong backend 🚧
 3. Build functionality with AI using the clothing 🛑
-4. ...
+4. Make UI responsive (not a priority) 🛑
+5. ...
