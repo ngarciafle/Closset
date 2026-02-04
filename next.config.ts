@@ -6,7 +6,7 @@ images: {
       {
         protocol: 'https',
         hostname: 'res.cloudinary.com',
-        pathname: '/**', // Permite todas las rutas dentro de Cloudinary
+        pathname: '/**', // Allows all routes of cloudinary
       },
     ],
   },
