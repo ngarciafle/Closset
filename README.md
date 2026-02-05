@@ -41,12 +41,12 @@ pnpm install
 DATABASE_URL="postgresql://user:password@localhost:5432/closset"
 
 ### Database configuration (local)
-- Prerequisites
+####Prerequisites
 
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [Docker Compose](https://docs.docker.com/compose/install/)
 
-- How to run
+####How to run
 
 1. Clone this repository.
 2. Run the following command in your terminal:
