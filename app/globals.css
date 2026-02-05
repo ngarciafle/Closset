@@ -28,3 +28,5 @@ body {
   color: var(--foreground);
   font-family: var(--font-raleway), Arial, Helvetica, sans-serif;
 }
+
+@source "./";
