@@ -70,8 +70,6 @@ npm run dev
 ```text
 Closset/
 ├── app/
-│   ├── api/               # Server-side API routes
-│   │   └── upload/        # Cloudinary upload endpoint
 │   ├── actions/           # Server actions & DB interactions (POST)
 │   ├── data/              # Server actions & DB interactions (GET)
 │   ├── lib/               # Utilities and configurations
