@@ -40,11 +40,27 @@ pnpm install
 ### Database connection (local Postgres)
 DATABASE_URL="postgresql://user:password@localhost:5432/closset"
 
-# Cloudinary Configuration (For image uploads)
+### Database configuration (local)
+- Prerequisites
+
+- [Docker](https://www.docker.com/products/docker-desktop)
+- [Docker Compose](https://docs.docker.com/compose/install/)
+
+- How to run
+
+1. Clone this repository.
+2. Run the following command in your terminal:
+
+```bash
+docker-compose up -d
+```
+
+### Cloudinary Configuration (For image uploads)
+```text
 CLOUDINARY_CLOUD_NAME="your_cloud_name"
 CLOUDINARY_API_KEY="your_api_key"
 CLOUDINARY_API_SECRET="your_api_secret"
-
+```
 ### 4. RRUN IT!
 ```bash
 npm run dev
