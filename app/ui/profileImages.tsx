@@ -17,7 +17,7 @@ export default function ProfileImages(props: { userName: string, garments: any[]
     )
   } else {
     contentImages = ( // show garment images
-      <div className="grid grid-cols-4 md:grid-cols-3 w-full ">
+      <div className="grid grid-cols-2 xl:grid-cols-4 md:grid-cols-3 w-full ">
       {props.garments.length == 0 ? <p>No garments available</p> : props.garments.map((garment: any) => ( 
         <Link href={`/garment/${garment.id}`} key={garment.id} className="relative group w-full overflow-hidden block" style={{ aspectRatio: '3/4' }}> 
           <Image  
