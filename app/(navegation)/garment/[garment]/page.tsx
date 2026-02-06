@@ -1,8 +1,12 @@
+import getGarmentInfo from "@/app/data/getGarmentInfo"
+import GarmentDetails from "@/app/ui/garmentDetails";
 
-
-export default function garmentPage() {
-
+export default async function garmentPage({ params }: { params: { garment: string } }) {
+  const { garment } = await params;
+  const garmentInfo = await getGarmentInfo(garment)
   return (
-    <div>garmentPage</div>
+    <div className="">
+      <GarmentDetails garment={garmentInfo} />
+    </div>
   )
 }
