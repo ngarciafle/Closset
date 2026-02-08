@@ -87,6 +87,7 @@ Closset/
 1. Build a basic UI 🚧
 2. Have a strong backend 🚧
 3. Build functionality with AI using the clothing 🛑
-4. Make UI responsive (not a priority) 🛑
+4. Make UI responsive (not a priority) 🚧
 5. Implement more security 🛑
-6. ...
+6. Make an animation in / 🛑
+7. ...
