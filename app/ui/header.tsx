@@ -12,7 +12,7 @@ export async function Header() {
     let menuOptions;
     if (session) {
         menuOptions = (
-            <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-white/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
+            <MenuItems className='grid grid-cols-1 w-36 mt-4 z-20 bg-white/5 rounded-md shadow-inner shadow-black/10 transition ease-in-out duration-300 ' anchor="bottom end" transition>
                 <MenuItem>
                     <Link href={`/${session.username}`} className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
                         <User className='size-4 my-auto'/>
@@ -57,9 +57,9 @@ export async function Header() {
                 <MenuButton className='w-fit'>
                     <TextAlignJustify className='size-14 cursor-pointer pl-4 pr-4 scale-110'/>
                 </MenuButton>
-                <MenuItems className='grid grid-cols-1 h-screen bg-background-secondary transition ease-in-out duration-300 z-30 ' anchor="bottom start" transition>
+                <MenuItems className='grid grid-cols-1 h-screen bg-background-secondary transition ease-in-out duration-300 z-30 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6' anchor="top" transition>
                     <MenuItem>
-                        <Link href="/" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 rounded-md pl-2'>
+                        <Link href="/" className='flex flex-row gap-4 hover:bg-gray-700 p-1 transition-all duration-300 pl-2'>
                             <User className='size-4 my-auto'/>
                             <p>Dashboard</p>
                         </Link>
