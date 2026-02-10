@@ -93,7 +93,7 @@ export async function Header() {
             </Form>
             {session && <Menu>
 
-                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer ml-6 '>
+                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer ml-10 '>
                     <Plus className='color-foreground m-auto size-8'/>
                 </MenuButton>
 
