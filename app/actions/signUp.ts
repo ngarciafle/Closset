@@ -15,12 +15,12 @@ export async function signUp(prevState: any, formData: FormData) {
   const data = {
     name: formData.get('name')?.toString() || '',
     lastName: formData.get('lastName')?.toString() || '',
-    userName: formData.get('username')?.toString() || '',
+    username: formData.get('username')?.toString() || '',
     password: formData.get('password')?.toString() || '',
     email: formData.get('email')?.toString() || '',
   }
+  console.log(data)
   const parsedData = signUpSchema.safeParse(data); 
-
   if (!parsedData.success) {
     return {
       success: false,
@@ -55,7 +55,6 @@ export async function signUp(prevState: any, formData: FormData) {
     }
     let message = "";
     const dbError = error as DatabaseError;
-
     if (dbError.code === '23505') {
       message = 'An account with this email already exists.';
       if (dbError.detail.includes('username')) {

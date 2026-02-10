@@ -73,7 +73,7 @@ export default function SignUp() {
               "font-barlow text-xs",
               state.errors?.username ? "text-red-500" : ""
             )}
-            htmlFor="userName"
+            htmlFor="username"
           >
             {state.errors?.username ? state.errors.username : "User Name"}
           </label>
@@ -81,8 +81,8 @@ export default function SignUp() {
             defaultValue={state.inputs?.username}
             type="text"
             className="bg-foreground text-background"
-            id="userName"
-            name="userName"
+            id="username"
+            name="username"
           />
         </div>
         <div className="flex flex-col ">
