@@ -65,5 +65,5 @@ export async function uploadGarment(formData: FormData) {
   } finally {
     client.release();
   }
-  redirect('/${session.username}');
+  redirect(`/${session.username}`);
 }
