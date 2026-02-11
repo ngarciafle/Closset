@@ -54,7 +54,7 @@ export async function Header() {
     return (
         <header className='bg-background-secondary flex flex-row pl-5 pr-4 pt-3 pb-3 m-0 w-full h-14 shrink-0 z-20 items-center '>
             <Menu>
-                <MenuButton className='w-fit'>
+                <MenuButton className='focus:outline-none w-fit'>
                     <TextAlignJustify className='size-14 cursor-pointer pl-4 pr-4 scale-110'/>
                 </MenuButton>
                 <MenuItems className='grid grid-cols-1 h-screen bg-background-secondary transition ease-in-out duration-300 z-30 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6' anchor="top" transition>
@@ -83,17 +83,17 @@ export async function Header() {
             </Link>
 
 
-            <Form action={search} className='border-x-amber-50 w-full flex gap-0 ml-100'>
+            <Form action={search} className='border-x-amber-50 flex gap-0 bg-background rounded-2xl w-fit xl:ml-[30%] md:ml-[20%] ml-15 pr-1 pl-3'>
                 <label htmlFor="searchInput" className='hidden'></label>
-                <input type="text" id="searchInput" placeholder='Search' className='' minLength={3} required name='searchInput'/>
+                <input type="text" id="searchInput" placeholder='    Search' className='focus:outline-none' minLength={3} required name='searchInput'/>
 
                 <button>
-                    <Search className='color-foreground cursor-pointer'/>
+                    <Search className='color-foreground cursor-pointer mr-1 pl-1 hover:scale-105 transition-all duration-300 size-7'/>
                 </button>
             </Form>
             {session && <Menu>
 
-                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer ml-10 '>
+                <MenuButton className='rounded-full size-10 min-w-10 cursor-pointer ml-50 md:ml-80 xl:ml-100 mr-8 hover:bg-background transition-colors duration-300 r'>
                     <Plus className='color-foreground m-auto size-8'/>
                 </MenuButton>
 
@@ -116,7 +116,7 @@ export async function Header() {
             </Menu>}
 
             <Menu >
-                <MenuButton className='rounded-full bg-background size-10 min-w-10 cursor-pointer justify-self-end relative'>
+                <MenuButton className='rounded-full size-10 min-w-10 cursor-pointer ml-auto hover:bg-background transition-colors duration-300 relative'>
                     <User className='color-foreground m-auto size-8'/>
                 </MenuButton>
                 {menuOptions}
