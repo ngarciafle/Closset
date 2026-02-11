@@ -19,7 +19,7 @@ export async function signUp(prevState: any, formData: FormData) {
     password: formData.get('password')?.toString() || '',
     email: formData.get('email')?.toString() || '',
   }
-  console.log(data)
+  // console.log(data) used for debugging  
   const parsedData = signUpSchema.safeParse(data); 
   if (!parsedData.success) {
     return {
