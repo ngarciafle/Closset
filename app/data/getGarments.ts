@@ -6,9 +6,9 @@ export async function getGarments(userName: string) {
   try {
     const query = `
       SELECT g.* FROM garments g
-      JOIN users u ON g."userId" = u.id
+      JOIN users u ON g."user_id" = u.id
       WHERE u.username = $1
-      ORDER BY g."createdAt" DESC
+      ORDER BY g."created_at" DESC
     `;
     const response = await client.query(query, [userName]);
     console.log("Garments fetched:", response.rows);

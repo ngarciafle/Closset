@@ -7,7 +7,7 @@ export async function createSession(userId: string) {
   const client = await pool.connect();
   const token = crypto.randomBytes(64).toString('hex');
   const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // one week
-  const insertQuery = `INSERT INTO sessions ("expiresAt", "userId", token) VALUES ($1, $2, $3)`;
+  const insertQuery = `INSERT INTO sessions ("expires_at", "user_id", token) VALUES ($1, $2, $3)`;
   const values = [expiresAt, userId, token];
   await client.query(insertQuery, values);
   client.release();

@@ -55,7 +55,7 @@ export async function uploadGarment(formData: FormData) {
   const client = await pool.connect();
   try {
     const insertQuery = `
-      INSERT INTO garments (name, materials, "userId", brand, size, type, color, images)
+      INSERT INTO garments (name, materials, "user_id", brand, size, type, color, images)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`;
     const values = [data.name, data.materials, session.id , data.brand, data.size, data.type, data.color, imagesUrls];
     const response = await client.query(insertQuery, values); // not neccessary 

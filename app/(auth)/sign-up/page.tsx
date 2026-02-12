@@ -8,8 +8,8 @@ import Link from "next/link";
 const initialState = {
   success: false,
   message: "",
-  errors: { name: "", lastName: "", username: "", email: "", password: "" },
-  inputs: { name: "", lastName: "", username: "", email: ""},
+  errors: { name: "", last_name: "", username: "", email: "", password: "" },
+  inputs: { name: "", last_name: "", username: "", email: ""},
   timestamp: 0,
 };
 
@@ -50,20 +50,20 @@ export default function SignUp() {
             <label
               className={cn(
                 "font-barlow text-xs",
-                state.errors?.lastName ? "text-red-500" : ""
+                state.errors?.last_name ? "text-red-500" : ""
               )}
               htmlFor="lastName"
             >
-              {state.errors?.lastName
-                ? state.errors.lastName
+              {state.errors?.last_name
+                ? state.errors.last_name
                 : "Last Name"}
             </label>
             <input
-              defaultValue={state.inputs?.lastName}
+              defaultValue={state.inputs?.last_name}
               type="text"
               className="bg-foreground text-background"
               id="lastName"
-              name="lastName"
+              name="last_name"
             />
           </div>
         </div>

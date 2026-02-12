@@ -14,7 +14,7 @@ interface DatabaseError extends Error {
 export async function signUp(prevState: any, formData: FormData) {
   const data = {
     name: formData.get('name')?.toString() || '',
-    lastName: formData.get('lastName')?.toString() || '',
+    last_name: formData.get('last_name')?.toString() || '',
     username: formData.get('username')?.toString() || '',
     password: formData.get('password')?.toString() || '',
     email: formData.get('email')?.toString() || '',
@@ -30,18 +30,18 @@ export async function signUp(prevState: any, formData: FormData) {
       timestamp: Date.now(),
     };
   }
-  const { name, lastName, username, email, password } = parsedData.data;
+  const { name, last_name, username, email, password } = parsedData.data;
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
   const client = await pool.connect();
   try {
     const insertQuery = `
-      INSERT INTO users (name, "lastName", "username", email, password, "createdAt")
+      INSERT INTO users (name, "last_name", "username", email, password, "created_at")
       VALUES ($1, $2, $3, $4, $5, NOW())
       RETURNING "id";
     `;
-    const values = [name, lastName, username, email, hashedPassword];
+    const values = [name, last_name, username, email, hashedPassword];
     const response = await client.query(insertQuery, values);
     const userId = await response.rows[0].id;
     await createSession(userId);
@@ -50,7 +50,7 @@ export async function signUp(prevState: any, formData: FormData) {
       email: "",
       username: "",
       name: "",
-      lastName: "",
+      last_name: "",
       password: "",
     }
     let message = "";
@@ -71,7 +71,7 @@ export async function signUp(prevState: any, formData: FormData) {
       errors: errors,
       message: message,
       timestamp: Date.now(),
-      inputs: {name, lastName, username, email},
+      inputs: {name, last_name, username, email},
     };
   } finally {
     client.release();
