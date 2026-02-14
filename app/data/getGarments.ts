@@ -1,7 +1,7 @@
 "use server";
 import { pool } from "../lib/auth";
 
-export async function getGarments(userName: string) {
+export async function getGarments(username: string) {
   const client = await pool.connect();
   try {
     const query = `
@@ -10,7 +10,7 @@ export async function getGarments(userName: string) {
       WHERE u.username = $1
       ORDER BY g."created_at" DESC
     `;
-    const response = await client.query(query, [userName]);
+    const response = await client.query(query, [username]);
     console.log("Garments fetched:", response.rows);
     return response.rows;
   } catch (error) {
