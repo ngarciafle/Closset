@@ -15,4 +15,5 @@ export const optionsMain = [
     { name: 'New', tag: 'new'},
     { name: 'Garments', tag: 'garments'},
     { name: 'Outfits', tag: 'outfits'},
+    { name: 'Profiles', tag: 'profiles'},
 ]

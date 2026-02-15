@@ -10,6 +10,8 @@ export default function Home() {
 
   } else if (optionSelected === "outfits") {
 
+  } else if (optionSelected === "profiles") {
+
   }
 
   if (optionSelected === "for-you") {
@@ -24,7 +26,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="flex gap-4 ml-1">
+      <div className="flex gap-4 ml-1 ">
         {optionsMain.map((option) => (
           <button
             onClick={() => setOptionSelected(option.tag)}
