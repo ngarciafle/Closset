@@ -1,6 +1,10 @@
 -- Enable pgcrypto for gen_random_uuid()
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
 
+-- Enable pg_trgm and unaccent for better search capabilities
+CREATE EXTENSION IF NOT EXISTS pg_trgm;
+CREATE EXTENSION IF NOT EXISTS unaccent;
+
 -- 1. Users Table
 CREATE TABLE IF NOT EXISTS public.users (
     id text NOT NULL DEFAULT gen_random_uuid()::text,
