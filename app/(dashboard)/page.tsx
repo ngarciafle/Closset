@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { optionsMain } from "../lib/constants";
+import Notification from "../ui/notification";
 
 export default function Home() {
   let [optionSelected, setOptionSelected] = useState("for-you");
