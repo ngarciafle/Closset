@@ -7,6 +7,7 @@ export default async function garmentPage({ params }: { params: { garment: strin
   return (
     <div className="">
       <GarmentDetails garment={garmentInfo} />
+      
     </div>
   )
 }

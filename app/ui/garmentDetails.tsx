@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ConfigureTags from "./configureTags";
 
 interface GarmentData {
   id: string;
@@ -31,6 +32,7 @@ export default function GarmentDetails({ garment }: { garment: GarmentData }) {
           height={250}
           />
       </div>
+      {<ConfigureTags />}
     </div>
   );
 }
