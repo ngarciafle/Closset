@@ -18,9 +18,7 @@ export default async function ProfilePage({ params }: { params: { username: stri
     const followers = await getFollow(info?.id);
     const following = await getFollowing(info?.id);
     let isUser = false;
-    if (session?.username === username) {
-        isUser = true;
-    }
+    if (session?.username === username) isUser = true;
     const garments = await getGarments(username);
 
     return (

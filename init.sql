@@ -65,4 +65,26 @@ CREATE TABLE IF NOT EXISTS public.garments (
     CONSTRAINT "garments_user_id_fkey" FOREIGN KEY ("user_id") 
         REFERENCES public.users(id) ON DELETE CASCADE
 );
+
+
+-- 5. Tags and user tast profile for personalized recommendations
+CREATE TABLE IF NOT EXISTS public.tags (
+    id SERIAL PRIMARY KEY,
+    name text NOT NULL,        -- Ej: 'Oversized', 'Vintage', 'Streetwear', 'Verano'
+    CONSTRAINT unique_tag_name_category UNIQUE (name, category)
+);
+
+CREATE TABLE IF NOT EXISTS public.garment_tags (
+    garment_id text NOT NULL REFERENCES public.garments(id) ON DELETE CASCADE,
+    tag_id INT NOT NULL REFERENCES public.tags(id) ON DELETE CASCADE,
+    PRIMARY KEY (garment_id, tag_id)
+);
+
+CREATE TABLE IF NOT EXISTS public.user_taste_profile (
+    user_id text NOT NULL REFERENCES public.users(id) ON DELETE CASCADE,
+    tag_id INT NOT NULL REFERENCES public.tags(id) ON DELETE CASCADE,
+    score float DEFAULT 1.0,
+    last_interaction timestamp DEFAULT now(),
+    PRIMARY KEY (user_id, tag_id)
+);
 -- AI generated 
