@@ -10,7 +10,7 @@ export default function ConfigureTags() {
       {/* need to build a navegation */}
       {tags.map((tag) => {
         return (
-          <div className={cn("flex flex-row items-center gap-1", tag.color)} key={tag.tag}>
+          <div className={cn("flex flex-row items-center gap-1 border justify-center", tag.color)} key={tag.tag}>
             <label className="" htmlFor={tag.tag}>{tag.name}</label>
             <input type="checkbox" className="appearance-none" id={tag.tag} name={tag.tag} value={tag.tag}/>
           </div>

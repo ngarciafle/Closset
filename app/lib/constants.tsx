@@ -19,156 +19,67 @@ export const optionsMain = [
 ];
 
 export const tags = [
+  // --- STYLE (Vibe/Aesthetic) ---
   {
     name: "Streetwear",
-    tag: "ESTILO",
-    color: "bg-purple-600 text-white border-purple-700",
-  }, // Intenso y urbano
+    tag: "streetwear",
+    color: "text-purple-600 border-purple-600",
+  },
   {
     name: "Y2K",
-    tag: "ESTILO",
-    color: "bg-fuchsia-300 text-fuchsia-900 border-fuchsia-400",
-  }, // Llamativo, vibrante
+    tag: "y2k",
+    color: "text-fuchsia-500 border-fuchsia-500",
+  },
   {
-    name: "Minimalista",
-    tag: "ESTILO",
-    color: "bg-slate-50 text-slate-500 border-slate-200",
-  }, // Súper limpio y neutro
+    name: "Minimalist",
+    tag: "minimalist",
+    color: "text-slate-500 border-slate-500",
+  },
   {
     name: "Vintage",
-    tag: "ESTILO",
-    color: "bg-yellow-900 text-yellow-100 border-yellow-950",
-  }, // Tono sepia/nostálgico
+    tag: "vintage",
+    color: "text-yellow-600 border-yellow-600",
+  },
   {
-    name: "Old Money",
-    tag: "ESTILO",
-    color: "bg-emerald-900 text-emerald-50 border-emerald-950",
-  }, // Verde oscuro, elegante
+    name: "Old money",
+    tag: "old money",
+    color: "text-emerald-700 border-emerald-700",
+  },
   {
     name: "Gorpcore",
-    tag: "ESTILO",
-    color: "bg-stone-700 text-stone-100 border-stone-800",
-  }, // Tonos tierra/montaña
+    tag: "gorpcore",
+    color: "text-stone-600 border-stone-600",
+  },
 
   // --- FIT (Corte de la prenda) ---
-  // Gama de azules: más claro = más holgado, más oscuro = más ajustado
   {
     name: "Oversized",
-    tag: "FIT",
-    color: "bg-blue-100 text-blue-800 border-blue-200",
-  }, // Relajado y claro
+    tag: "oversized",
+    color: "text-blue-500 border-blue-500",
+  },
   {
     name: "Baggy",
-    tag: "FIT",
-    color: "bg-sky-200 text-sky-900 border-sky-300",
-  }, // Muy holgado
+    tag: "baggy",
+    color: "text-sky-500 border-sky-500",
+  },
   {
-    name: "Slim Fit",
-    tag: "FIT",
-    color: "bg-blue-500 text-white border-blue-600",
-  }, // Estándar/Equilibrado
+    name: "Slim fit",
+    tag: "slim fit",
+    color: "text-blue-600 border-blue-600",
+  },
   {
     name: "Skinny",
-    tag: "FIT",
-    color: "bg-blue-900 text-blue-50 border-blue-950",
-  }, // Muy ajustado/Oscuro
+    tag: "skinny",
+    color: "text-blue-800 border-blue-800",
+  },
   {
     name: "Cropped",
-    tag: "FIT",
-    color: "bg-cyan-100 text-cyan-800 border-cyan-200",
-  }, // Ligero y corto
+    tag: "cropped",
+    color: "text-cyan-600 border-cyan-600",
+  },
   {
     name: "Boxy",
-    tag: "FIT",
-    color: "bg-indigo-400 text-white border-indigo-500",
-  }, // Estructurado
-
-  // --- OCASION (Contexto de uso) ---
-  // Gama de verdes y tonos de "momento del día"
-  {
-    name: "Casual",
-    tag: "OCASION",
-    color: "bg-emerald-100 text-emerald-800 border-emerald-200",
-  }, // Fácil, de día
-  {
-    name: "Fiesta / Noche",
-    tag: "OCASION",
-    color: "bg-zinc-900 text-zinc-100 border-black",
-  }, // Oscuro, nocturno
-  {
-    name: "Oficina / Formal",
-    tag: "OCASION",
-    color: "bg-teal-800 text-teal-50 border-teal-900",
-  }, // Serio, profesional
-  {
-    name: "Gimnasio",
-    tag: "OCASION",
-    color: "bg-lime-400 text-lime-950 border-lime-500",
-  }, // Enérgico, activo
-  {
-    name: "Playa",
-    tag: "OCASION",
-    color: "bg-cyan-200 text-cyan-900 border-cyan-300",
-  }, // Acuático, fresco
-
-  // --- MATERIAL (Composición) ---
-  // Tonos orgánicos y texturas
-  {
-    name: "Algodón",
-    tag: "MATERIAL",
-    color: "bg-orange-50 text-orange-800 border-orange-100",
-  }, // Suave, claro
-  {
-    name: "Denim",
-    tag: "MATERIAL",
-    color: "bg-blue-700 text-blue-50 border-blue-800",
-  }, // Azul vaquero clásico
-  {
-    name: "Lino",
-    tag: "MATERIAL",
-    color: "bg-stone-200 text-stone-800 border-stone-300",
-  }, // Beige/Arena
-  {
-    name: "Cuero",
-    tag: "MATERIAL",
-    color: "bg-amber-950 text-amber-100 border-black",
-  }, // Marrón muy oscuro/Negro
-  {
-    name: "Lana",
-    tag: "MATERIAL",
-    color: "bg-orange-200 text-orange-900 border-orange-300",
-  }, // Cálido, invernal
-
-  // --- TIPO (Hard Fact) ---
-  // Gama de grises: más pesado el artículo = más oscuro el gris
-  {
-    name: "Camiseta",
-    tag: "TIPO",
-    color: "bg-slate-100 text-slate-800 border-slate-200",
-  }, // Ligero
-  {
-    name: "Sudadera",
-    tag: "TIPO",
-    color: "bg-slate-300 text-slate-900 border-slate-400",
-  }, // Medio
-  {
-    name: "Pantalón",
-    tag: "TIPO",
-    color: "bg-slate-500 text-white border-slate-600",
-  }, // Base
-  {
-    name: "Chaqueta",
-    tag: "TIPO",
-    color: "bg-slate-800 text-slate-100 border-slate-900",
-  }, // Pesado/Exterior
-  {
-    name: "Zapatillas",
-    tag: "TIPO",
-    color: "bg-zinc-700 text-white border-zinc-800",
-  }, // Distinto
-  {
-    name: "Accesorios",
-    tag: "TIPO",
-    color: "bg-gray-200 text-gray-800 border-gray-300",
-  }, // Complementario
+    tag: "boxy",
+    color: "text-indigo-500 border-indigo-500",
+  },
 ];

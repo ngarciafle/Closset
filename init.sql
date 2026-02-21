@@ -87,4 +87,32 @@ CREATE TABLE IF NOT EXISTS public.user_taste_profile (
     last_interaction timestamp DEFAULT now(),
     PRIMARY KEY (user_id, tag_id)
 );
+
+--INSERT TAGS
+INSERT INTO public.tags (name, tag, color) VALUES
+  -- ESTILO
+  ('Streetwear', 'streetwear', 'text-purple-600 border-purple-600'),
+  ('Y2K', 'y2k', 'text-fuchsia-500 border-fuchsia-500'),
+  ('Minimalist', 'minimalist', 'text-slate-500 border-slate-500'),
+  ('Vintage', 'vintage', 'text-yellow-600 border-yellow-600'),
+  ('Old money', 'old money', 'text-emerald-700 border-emerald-700'),
+  ('Gorpcore', 'gorpcore', 'text-stone-600 border-stone-600'),
+  
+  -- FIT
+  ('Oversized', 'oversized', 'text-blue-500 border-blue-500'),
+  ('Baggy', 'baggy', 'text-sky-500 border-sky-500'),
+  ('Slim fit', 'slim fit', 'text-blue-600 border-blue-600'),
+  ('Skinny', 'skinny', 'text-blue-800 border-blue-800'),
+  ('Cropped', 'cropped', 'text-cyan-600 border-cyan-600'),
+  ('Boxy', 'boxy', 'text-indigo-500 border-indigo-500'),
+  
+  -- OCASION
+  ('Casual', 'casual', 'text-emerald-500 border-emerald-500'),
+  ('Party / night out', 'party / night out', 'text-zinc-800 border-zinc-800'),
+  ('Office / formal', 'office / formal', 'text-teal-700 border-teal-700'),
+  ('Gym', 'gym', 'text-lime-600 border-lime-600'),
+  ('Beach', 'beach', 'text-cyan-500 border-cyan-500')
+
+-- Si el tag ya existe en la base de datos, lo salta para no crear duplicados
+ON CONFLICT (tag) DO NOTHING;
 -- AI generated 
