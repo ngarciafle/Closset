@@ -6,7 +6,7 @@ import { cn } from "@/app/lib/utils";
 export default function ConfigureTags() {
   const [selectedTags, setSelectedTags] = useState();
   return (
-    <div className="grid xl:grid-cols-3 md:grid-cols-4 grid-cols-5 gap-2">
+    <div className="flex overflow-y-auto gap-2">
       {/* need to build a navegation */}
       {tags.map((tag) => {
         return (

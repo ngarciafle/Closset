@@ -6,7 +6,7 @@
       const query = `INSERT INTO garment_tags (garment_id, tag) VALUES ($1, $2) ON CONFLICT (garment_id, tag) DO UPDATE SET tag = $2`;
       //const queryIdx = `SELECT ` IDX IS ON SEQ GET IT AND USE IT? TOO MUCH?? 
       for (const tag of tags) {
-        const idx = 
+        const idx = client.query(`SELECT id FROM tags WHERE tag = $1`, [tag]);
         await client.query(query, [id, tag]);
       }
     } catch (error) {
