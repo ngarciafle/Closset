@@ -10,7 +10,6 @@ export function BioEditor({ initialBio, editable }: { initialBio: string, editab
     const [isPending, startTransition] = useTransition();
 
     const handleCancel = () => {
-        setBio(initialBio || "");
         setIsEditing(false);
     };
 
